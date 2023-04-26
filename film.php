@@ -24,7 +24,7 @@ if(isset($_GET['id_movie'])){ ?>
         }
 
 
-        fetch('https://api.themoviedb.org/3/movie/'+getIdMovie()+'?api_key=API_KEYÀMETTRE')
+        fetch('https://api.themoviedb.org/3/movie/'+getIdMovie()+'?api_key=VOTRECLÉAPI')
             .then(response => response.json())
             .then(data => {
                 console.log(data);
@@ -43,9 +43,7 @@ if(isset($_GET['id_movie'])){ ?>
                         p.innerHTML = '<b>'+ key+'</b>'+':' + data[key];
                         divDescription.append(p);
                     }
-                }
-                    // A COMPLETER POUR RÉCUPÉRER LES GENRES DE FILM PAR EXEMPLE
-                    else if(Array.isArray(data[key])){
+                }else if(Array.isArray(data[key])){
                         console.log('1:'); console.log(data[key]);
                     }
                 }

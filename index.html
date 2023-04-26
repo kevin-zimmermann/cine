@@ -11,18 +11,17 @@
 </body>
 </html>
 <script>
-    const api_key = 'API_KEYÀMETTRE';
+    const api_key = 'VOTRECLÉAPI';
     const imgURL = "https://image.tmdb.org/t/p/original/";
     function fetchMoviesOrSeries(type,div){
+
         fetch('https://api.themoviedb.org/3/'+type+'/popular?api_key='+api_key+'&page=1')
             .then(response => response.json())
             .then(data => {
                 let dataDiv = document.getElementById(div);
-                console.log(data.results);
                 data.results.forEach(element => {
                     let p = document.createElement("p");
                     let img =  document.createElement("img");
-                    console.log(element.id)
                     if(type == 'movie'){
                         p.innerHTML = '<a href="film.php?id_movie='+element.id+'">'+element.title+'</a>';
                     }else{
@@ -36,7 +35,7 @@
             })
             .catch(error => console.error(error))
     }
-    fetchMoviesOrSeries('movie','data-movies');
+    fetchMoviesOrSeries('movie', 'data-movies');
     fetchMoviesOrSeries('tv','data-series');
 
 </script>
